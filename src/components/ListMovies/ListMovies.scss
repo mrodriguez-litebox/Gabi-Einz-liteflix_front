@@ -1,0 +1,79 @@
+$primary-color: #64EEBC;
+$secondary-color: #242424;
+
+.listMovies {
+	padding-top: 40px;
+	background: transparent;
+	
+	&__dropdown {
+		// padding: 12px;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 10px;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		color: white;
+		
+		&__selection {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			background: transparent;
+			cursor: pointer;
+			svg {
+				transform: rotateX(0deg); 
+				transition: .3s;
+				margin-left: 5px;
+			}
+		}
+		
+		&__menu {
+			background-color: $secondary-color;
+			position: absolute;
+			top: 100%;
+			width: 200px;
+			z-index: 3;
+			padding: 0 25px;
+
+			svg {
+				stroke: white;
+			}
+			
+			&__item {
+				margin: 18px 0px;
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				cursor: pointer;
+			}
+			
+			&-arrowUp {
+				position: absolute;
+				top: -6px;
+				background: $secondary-color;
+				right: 27px;
+				height: 12px;
+				width: 12px;
+				transform: rotate(45deg);
+			}
+		}
+		
+	}
+}
+
+
+@media (max-width: 960px) {
+	.listMovies{
+		padding-left: 24px;
+		padding-right: 24px;
+		background: $secondary-color;
+	}
+}

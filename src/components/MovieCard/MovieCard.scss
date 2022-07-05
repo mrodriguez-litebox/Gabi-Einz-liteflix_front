@@ -1,0 +1,190 @@
+$primary-color: #64EEBC;
+$secondary-color: #242424;
+$mC: movieCard;
+
+.movieCard {
+	position: relative;
+	height: 120px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	border-radius: 3px;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	
+	&__hover {
+		display: none;
+	}
+	
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		border-radius: 3px;
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0) 22.78%, #000000 122.69%);
+		
+		.MuiButton-root{
+			min-width: auto;
+			padding: 9px 10px;
+			background: rgba(36,36,36,0.5);
+			box-shadow: none;
+			border: 1px solid white;
+			border-radius: 100%;
+			
+			.MuiButton-startIcon {
+				margin-left: 3px;
+				margin-right: 0px;
+			}
+			svg {
+				stroke: white;
+			}
+		}
+		
+		&__title {
+			padding: 11px 0px;
+			color: white;
+			text-align: center;
+			width: 85%;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+	}
+
+	&:hover {
+		background: rgba(36,36,36,0.7);
+		justify-content: flex-end;
+		flex-direction: column;
+
+		.#{$mC}{
+			&__content{
+				flex-direction: row;
+				position: relative;
+				animation: fade-in .8s both;
+				background: none;
+
+				.MuiButton-root{
+					margin-left: 15px;
+					&:hover {
+						background: $primary-color;
+						border-color: black;
+						svg {
+							stroke: black;
+							fill: black;
+						}
+					}
+				}
+
+				&__title {
+					padding: 0px 0px 0px 12px;
+					font-size: 12px;
+					text-align: left;
+					white-space: normal;
+				}
+
+			}
+
+			&__hover {
+				display: flex;
+				color: white;
+				animation: fade-in .8s both;
+				&-popular {
+					font-size: 14px;
+					display: flex;
+					width: 100%;
+					align-items: center;
+					justify-content: space-between;
+					padding: 15px 15px 10px;
+					svg {
+						margin-right: 6px;
+					}
+				}
+				&-myMovie {
+					display: flex;
+					width: 100%;
+					align-items: center;
+					justify-content: flex-start;
+					padding: 15px 15px 10px;
+					font-size: 11px;
+				}
+			}
+		}
+	}
+	
+}
+
+@media (max-width: 599px) {
+	.movieCard {
+		height: 210px;
+		&:last-child { margin-bottom: 20px; }
+
+		&__content {
+			.MuiButton-root{
+				padding: 12px 13px;
+			}
+			&__title{
+				padding: 28px 0px;
+				font-size: 20px !important;
+			}
+		}
+		
+		&:hover {
+			background: rgba(36,36,36,0.7);
+			
+			.#{$mC}{
+				&__content{
+					.MuiButton-root{
+						margin-left: 30px;
+					}
+				}
+				&__hover {
+					&-popular {
+						font-size: 18px;
+						padding: 30px 30px 25px;
+					}
+					&-myMovie {
+						font-size: 16px;
+						padding: 30px 30px 25px;
+					}
+				}
+			}
+
+		}
+	}
+}
+
+@media (min-width: 600px) {
+	.#{$mC}:hover {
+		.#{$mC}__content .MuiButton-root {
+			padding: 5px 6px;
+			.MuiButton-startIcon {
+				margin-left: 2px;
+			}
+			svg{
+				width: 7px;
+					height: 12px;
+				}
+			}
+		}
+	}
+	
+	@media (min-width: 600px) and (max-width: 768px) {
+		.#{$mC} {
+			height: 250px;
+			&__content {
+				&__title{
+					padding: 40px 0px;
+				}
+			}
+		}
+	}
+	
+	@keyframes fade-in {
+		0% { opacity: 0; }
+		100% { opacity: 1; }
+	}
