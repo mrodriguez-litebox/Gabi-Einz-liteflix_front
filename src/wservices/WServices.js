@@ -4,6 +4,7 @@ import { HttpMethodEnum } from "../enums/HttpMethodEnum";
 const apiKey = '6f26fd536dd6192ec8a57e94141f8b20';
 
 export const createMovie = async(movieTitle, image) => {
+	return []
 	const requestOptions = {
         method: HttpMethodEnum.POST,
         headers: { 'Content-Type': 'application/json', 
@@ -28,6 +29,7 @@ export const createMovie = async(movieTitle, image) => {
 } 
 
 export const getMovies = async() => {
+	return []
 	try {
 		const url = EndpointEnum.MOVIE; 
 		const response = await fetch(url)
